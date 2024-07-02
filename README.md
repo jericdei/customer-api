@@ -29,13 +29,23 @@ export UID=$(id -u)
 export GID=$(id -g)
 ```
 
-#### 2. Create `.env` by copying the `.env.example` file
+#### 2. Create an external Docker Network
+```bash
+docker network create mynetwork # You can name it whatever you want
+```
+
+#### 3. Create `.env` by copying the `.env.example` file
 
 ```bash
 cp .env.example .env
 ```
 
-#### 3. Run the containers
+Make sure to populate the `DOCKER_EXTERNAL_NETWORK_NAME` with your external network name
+```bash
+DOCKER_EXTERNAL_NETWORK_NAME=mynetwork
+```
+
+#### 4. Run the containers
 
 If you have `justfile` installed on your system, you can just run the following command on your terminal:
 
@@ -50,7 +60,7 @@ docker compose up -d
 
 This should build the containers without any errors and start the application in http://localhost:81.
 
-#### 4. Setup Laravel
+#### 5. Setup Laravel
 
 Install Dependencies
 ```bash

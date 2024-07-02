@@ -39,7 +39,7 @@ services:
 networks:
     external:
         external: true
-        name: ${DOCKER_EXTERNAL_NETWORK_NAME:-bridge}
+        name: ${DOCKER_EXTERNAL_NETWORK_NAME}
 
 volumes:
     customer_data:
