@@ -31,7 +31,8 @@ export GID=$(id -g)
 
 #### 2. Create an external Docker Network
 ```bash
-docker network create mynetwork # You can name it whatever you want
+# You can name it whatever you want!
+docker network create mynetwork
 ```
 
 #### 3. Create `.env` by copying the `.env.example` file
@@ -40,7 +41,7 @@ docker network create mynetwork # You can name it whatever you want
 cp .env.example .env
 ```
 
-Make sure to populate the `DOCKER_EXTERNAL_NETWORK_NAME` with your external network name
+Make sure to populate the `DOCKER_EXTERNAL_NETWORK_NAME` on your `.env` file with your created network name
 ```bash
 DOCKER_EXTERNAL_NETWORK_NAME=mynetwork
 ```
