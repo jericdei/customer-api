@@ -14,6 +14,3 @@ composer *command:
     docker compose exec app composer {{command}}
 artisan *command:
     docker compose exec app php artisan {{command}}
-
-mysql *command:
-    docker compose exec app mysql {{command}}
