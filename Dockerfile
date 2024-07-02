@@ -31,7 +31,7 @@ RUN docker-php-ext-install mbstring exif pcntl bcmath gd
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Permissions
-ARG UID
-ARG GID
+ARG UID=1000
+ARG GID=1000
 RUN useradd -m docker --uid=${UID}
 USER ${UID}:${GID}
