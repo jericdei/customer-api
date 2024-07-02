@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpsertCustomerRequest extends FormRequest
 {
@@ -14,10 +15,10 @@ class UpsertCustomerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'first_name' => ['required', 'max:255'],
-            'last_name' => ['required', 'max:255'],
-            'email' => ['required', 'email', 'max:255'],
-            'contact_number' => ['required', 'max:255']
+            'first_name' => [Rule::requiredIf($this->method === 'POST'), 'max:255'],
+            'last_name' => [Rule::requiredIf($this->method === 'POST'), 'max:255'],
+            'email' => [Rule::requiredIf($this->method === 'POST'), 'email', 'max:255'],
+            'contact_number' => [Rule::requiredIf($this->method === 'POST'), 'max:255']
         ];
     }
 }

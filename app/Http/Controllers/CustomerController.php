@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ListCustomerRequest;
 use App\Http\Requests\UpsertCustomerRequest;
 use App\Models\Customer;
-use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
@@ -46,16 +45,6 @@ class CustomerController extends Controller
 
         return response()->json([
             'message' => 'Customer has been created.',
-            'customer' => $customer
-        ]);
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Customer $customer)
-    {
-        return response()->json([
             'customer' => $customer
         ]);
     }
