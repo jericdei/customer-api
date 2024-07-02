@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ListCustomerRequest;
 use App\Http\Requests\UpsertCustomerRequest;
 use App\Models\Customer;
 use Illuminate\Http\Request;
@@ -11,11 +12,17 @@ class CustomerController extends Controller
     /**
      * Display a listing of customers.
      */
-    public function index(Request $request)
+    public function index(ListCustomerRequest $request)
     {
         $query = Customer::query();
 
-        // Filters, sorts, search
+        if ($request->has('q')) {
+            $query = Customer::search($request->input('q'));
+        }
+
+        if ($request->has('sort')) {
+            $query->orderBy($request->input('sort.field'), $request->input('sort.order', 'asc'));
+        }
 
         if ($request->has('page')) {
             return $query->paginate(
