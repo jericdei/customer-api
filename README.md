@@ -94,3 +94,17 @@ docker compose exec app php artisan migrate:fresh --seed
 ```
 
 That's it!
+
+## Running tests
+
+You can just run the test using:
+
+```bash
+just artisan test
+```
+
+or
+
+```bash
+docker compose exec app php artisan test
+```
