@@ -2,8 +2,7 @@ start:
     docker compose up -d
 stop:
     docker compose down
-restart:
-    stop && start
+restart: stop && start
 destroy:
     docker compose down -v
 rebuild:
