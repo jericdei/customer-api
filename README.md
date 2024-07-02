@@ -16,7 +16,7 @@ This application has an already-configured Docker Compose setup.
 ### Requirements
 
 - Docker & Docker Compose
-- [Justfile](https://github.com/casey/just) (Optional)
+- [Just](https://github.com/casey/just) (Optional)
 
 #### 1. Configure permissions
 
@@ -48,7 +48,7 @@ DOCKER_EXTERNAL_NETWORK_NAME=mynetwork
 
 #### 4. Run the containers
 
-If you have `justfile` installed on your system, you can just run the following command on your terminal:
+If you have `just` installed on your system, you can just run the following command on your terminal:
 
 ```bash
 just start
