@@ -25,8 +25,16 @@ Make sure you have the following environment variables on your system to ensure 
 ```bash
 # ~/.bashrc or ~/.zshrc
 
+...
 export UID=$(id -u)
 export GID=$(id -g)
+```
+Don't forget to source your `.bashrc` or `.zshrc` file after editing!
+
+```bash
+source ~/.zshrc
+# or
+source ~/.bashrc
 ```
 
 #### 2. Create an external Docker Network
