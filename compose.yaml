@@ -1,0 +1,45 @@
+name: customer
+
+services:
+    app:
+        container_name: customer-app
+        restart: unless-stopped
+        tty: true
+        working_dir: /var/www/html
+        build:
+            context: .
+            args:
+                UID: ${UID}
+                GID: ${GID}
+        ports:
+            - 81:80
+        volumes:
+            - ./:/var/www/html
+        depends_on:
+            - database
+        networks:
+            - external
+        environment:
+            - VIRTUAL_HOST=api.customer.localhost
+
+    database:
+        container_name: customer-database
+        image: postgres:16.3-alpine
+        ports:
+            - 54321:5432
+        volumes:
+            - customer_data:/var/lib/postgresql/data
+        networks:
+            - external
+        environment:
+            - POSTGRES_PASSWORD=password
+            - POSTGRES_USER=user
+            - POSTGRES_DB=customer
+
+networks:
+    external:
+        external: true
+        name: ${DOCKER_EXTERNAL_NETWORK_NAME:-default}
+
+volumes:
+    customer_data:
