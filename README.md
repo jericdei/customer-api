@@ -95,9 +95,9 @@ docker compose exec app php artisan migrate:fresh --seed
 
 That's it!
 
-## Running tests
+## Running feature tests
 
-You can just run the test using:
+You can just run the tests using:
 
 ```bash
 just artisan test
