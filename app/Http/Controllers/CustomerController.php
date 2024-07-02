@@ -20,9 +20,10 @@ class CustomerController extends Controller
             $query = Customer::search($request->input('q'));
         }
 
-        if ($request->has('sort')) {
-            $query->orderBy($request->input('sort.field'), $request->input('sort.order', 'asc'));
-        }
+        $query->orderBy(
+            $request->input('sort.field', 'updated_at'),
+            $request->input('sort.order', 'desc')
+        );
 
         if ($request->has('page')) {
             return $query->paginate(

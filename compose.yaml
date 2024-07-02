@@ -20,7 +20,7 @@ services:
         networks:
             - external
         environment:
-            - VIRTUAL_HOST=api.customer.localhost
+            - VIRTUAL_HOST=customer.localhost
 
     database:
         container_name: customer-database
